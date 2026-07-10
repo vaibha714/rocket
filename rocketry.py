@@ -12,10 +12,9 @@ max_time = time[np.argmax(altitude)]
 #VELOCITY CALCULATIONS
 delta_x = np.diff(altitude)
 delta_time = np.diff(time)
-
 velocity = delta_x/delta_time
 
-b, a = butter(N=4, Wn = 0.1, btype = "low") #Wn is the normalized cutoff frequency which tells scipy the frequency above which to block, smaller number the more f blocked
+b, a = butter(N=4, Wn = 0.1, btype = "low") #Wn is the normalized cutoff frequency, telling scipy the frequency above which to block
 filtered = filtfilt(b,a,velocity)
 
 

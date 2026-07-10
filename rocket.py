@@ -5,14 +5,14 @@ g = 9.8
 time = np.linspace(0,3,500, endpoint = True)
 
 time_squared = time**2 
-height = v0 * time -(.5*g*time_squared)
+height = v0 * time -(.5*g*time_squared) #basic kinematic equation for height of rocket
 
 indices = height > 0
 pos = height[indices]
 new_time = time[indices]
 
-gaussian_noise = np.random.normal(0,.05,new_time.size)
-
+#simulates random noise when one collects data from a real model rocket launch
+gaussian_noise = np.random.normal(0,.05,new_time.size) 
 messy_height = pos + gaussian_noise
 
 result = np.column_stack((messy_height,new_time))
